@@ -9,7 +9,7 @@ const App = () => {
     <div className='App'>
       <div className='gradient__bg'>
         <Navbar/>
-        <Element name='brand'> <Header/> </Element>
+        <Element name='home'> <Header/> </Element>
       </div>
       <Brand/>
       <Element name='whatgpt3'> <WhatGPT3/> </Element>

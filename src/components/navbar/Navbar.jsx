@@ -7,11 +7,11 @@ import logo from '../../assets/logo.svg'
 const Menu = () =>{
   return (
     <>
-    <Link to='home' smooth={true} duration={500} > <p>Home</p> </Link>
-    <Link to='whatgpt3' smooth={true} duration={500} > <p>What is GPT3</p> </Link>
-    <Link to='possibility' smooth={true} duration={500} > <p>Open AI</p> </Link>
-    <Link to='features' smooth={true} duration={500} > <p>Case Studies</p> </Link>
-    <Link to='blog' smooth={true} duration={500} > <p>Blog</p> </Link>
+    <Link href='#' to='home' smooth={true} duration={500} > <p>Home</p> </Link>
+    <Link href='#' to='whatgpt3' smooth={true} duration={500} > <p>What is GPT3</p> </Link>
+    <Link href='#' to='possibility' smooth={true} duration={500} > <p>Open AI</p> </Link>
+    <Link href='#' to='features' smooth={true} duration={500} > <p>Case Studies</p> </Link>
+    <Link href='#' to='blog' smooth={true} duration={500} > <p>Blog</p> </Link>
     </>
   )
 }
