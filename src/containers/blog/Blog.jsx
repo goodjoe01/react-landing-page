@@ -1,9 +1,11 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import {images} from './import'
-import './blog.css'
 import Article from '../../components/article/Article'
+import { useState } from 'react'
+import { useEffect } from 'react'
+import './blog.css'
 
-const Blog = () => {
+const LazyBlog = () => {
   return (
     <div className="gpt3__blog section__padding" id="blog">
       <div className="gpt3__blog-heading">
@@ -21,6 +23,41 @@ const Blog = () => {
         </div>
       </div>
   </div>
+  )
+}
+
+const Blog = () => {
+  const [display, setDisplay] = useState(false);
+  const elementRef = useRef();
+
+  useEffect(()=>{
+
+    const onChange = (entries, observer) => {
+      console.log(entries)
+      const elements = entries[0];
+
+      if(elements.isIntersecting) {
+        setDisplay(true);
+        observer.disconnect();
+      }
+    }
+
+    const observer = new IntersectionObserver(onChange, {
+      rootMargin: '200px'
+    });
+
+    observer.observe(elementRef.current);
+
+    return () => observer.disconnect();
+
+  });
+
+  return (
+    <div ref={elementRef}>
+      {
+        display? <LazyBlog/> : null
+      }
+    </div>
   )
 }
 

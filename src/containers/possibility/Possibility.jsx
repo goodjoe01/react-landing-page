@@ -1,8 +1,11 @@
 import React from 'react'
 import './possibility.css'
 import possibilityImage from '../../assets/possibility.webp'
+import { useEffect } from 'react'
+import { useState } from 'react'
+import { useRef } from 'react'
 
-const Possibility = () => {
+const LazyPossibility = () => {
   return (
     <div className="gpt3__possibility section__padding" id="possibility">
 
@@ -18,6 +21,39 @@ const Possibility = () => {
       </div>
       
   </div>
+  )
+}
+
+const Possibility = () => {
+  const [display, setDisplay] = useState(false);
+  const ref = useRef();
+
+  useEffect(()=>{
+
+    const onChange = (entries, observer) => {
+      const e = entries[0];
+
+      if(e.isIntersecting) {
+        setDisplay(true);
+        observer.disconnect();
+      }
+    }
+
+    const observer = new IntersectionObserver(onChange, {
+      rootMargin: '200px'
+    })
+
+    observer.observe(ref.current)
+
+    return () => observer.disconnect();
+  });
+
+  return (
+    <div ref={ref}>
+      {
+        display? <LazyPossibility/> : null
+      }
+    </div>
   )
 }
 
