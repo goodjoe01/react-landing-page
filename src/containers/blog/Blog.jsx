@@ -3,7 +3,6 @@ import {images} from './import'
 import './blog.css'
 import Article from '../../components/article/Article'
 
-
 const Blog = () => {
   return (
     <div className="gpt3__blog section__padding" id="blog">

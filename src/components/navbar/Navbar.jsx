@@ -1,16 +1,17 @@
 import React, {useState} from 'react'
 import { RiCloseLine, RiMenu3Line} from 'react-icons/ri'
+import { Link } from 'react-scroll'
 import './navbar.css'
 import logo from '../../assets/logo.svg'
 
 const Menu = () =>{
   return (
     <>
-      <p><a href="#home">Home</a></p>
-      <p><a href="#wgpt3">What is GPT3</a></p>
-      <p><a href="#possibility">Open AI</a></p>
-      <p><a href="#features">Case Studies</a></p>
-      <p><a href="#blog">Library</a></p>
+    <Link to='home' smooth={true} duration={500} > <p>Home</p> </Link>
+    <Link to='whatgpt3' smooth={true} duration={500} > <p>What is GPT3</p> </Link>
+    <Link to='possibility' smooth={true} duration={500} > <p>Open AI</p> </Link>
+    <Link to='features' smooth={true} duration={500} > <p>Case Studies</p> </Link>
+    <Link to='blog' smooth={true} duration={500} > <p>Blog</p> </Link>
     </>
   )
 }

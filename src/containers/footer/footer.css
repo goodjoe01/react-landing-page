@@ -35,6 +35,10 @@
   
 }
 
+.gpt3__footer-btn:hover {
+  background: var(--gradient-text);
+}
+
 .gpt3__footer-btn p {
   font-size: 18px;
   font-family: var(--font-family);
